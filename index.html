@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)file:///C:/Users/PC/Downloads/%C4%90%C4%83ng_k%C3%BD_th%C3%B4ng_tin_v3_2.html -->
+<html lang="vi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký thông tin</title>
+<link href="file:///C:/Users/PC/Downloads/%C4%90%C4%83ng%20k%C3%BD%20th%C3%B4ng%20tin_files/css2" rel="stylesheet">
+<style>
+:root {
+  --navy:    #0f2d52;
+  --blue:    #1565c0;
+  --blue-lt: #e8f0fe;
+  --gold:    #c8922a;
+  --gold-lt: #fdf3e0;
+  --green:   #1b7f4f;
+  --red:     #c0392b;
+  --grey-50: #f8f9fc;
+  --grey-100:#f0f2f7;
+  --grey-200:#dde1ea;
+  --grey-400:#9aa3b5;
+  --grey-600:#5c6679;
+  --text:    #1a2035;
+  --white:   #ffffff;
+  --radius:  12px;
+  --shadow:  0 2px 16px rgba(15,45,82,0.10);
+  --shadow-lg: 0 8px 40px rgba(15,45,82,0.14);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--grey-100);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px 48px;
+}
+
+/* ── CARD ── */
+.form-card {
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+.form-header {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a4a8a 100%);
+  padding: 32px 36px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.form-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 140px; height: 140px; border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.form-header::before {
+  content: '';
+  position: absolute;
+  top: -30px; left: -30px;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgba(200,146,42,0.15);
+}
+.header-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(200,146,42,0.2); border: 1px solid rgba(200,146,42,0.4);
+  color: #f5c76b; font-size: 11px; font-weight: 700;
+  letter-spacing: .10em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 20px;
+  margin-bottom: 14px;
+}
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; color: var(--white);
+  line-height: 1.25; margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.form-subtitle {
+  font-size: 13px; color: rgba(255,255,255,0.65);
+  font-weight: 500; position: relative; z-index: 1;
+}
+
+/* ── BODY ── */
+.form-body { padding: 32px 36px; }
+
+/* ── FIELD ── */
+.field { margin-bottom: 22px; }
+.field-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--grey-600);
+  text-transform: uppercase; letter-spacing: .07em;
+  margin-bottom: 8px;
+}
+.field-label .required { color: var(--red); font-size: 14px; line-height: 1; }
+.field-icon { font-size: 15px; }
+
+.field-input {
+  width: 100%; padding: 13px 16px;
+  border: 2px solid var(--grey-200); border-radius: var(--radius);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
+  color: var(--text); background: var(--grey-50);
+  outline: none; transition: border-color .18s, background .18s, box-shadow .18s;
+  -webkit-appearance: none;
+}
+.field-input::placeholder { color: var(--grey-400); font-weight: 400; }
+.field-input:focus {
+  border-color: var(--blue);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(21,101,192,0.10);
+}
+.field-input.valid {
+  border-color: var(--green);
+  background: #f0faf5;
+}
+.field-input.invalid {
+  border-color: var(--red);
+  background: #fff5f5;
+  box-shadow: 0 0 0 4px rgba(192,57,43,0.08);
+}
+
+/* Date field row */
+.date-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.date-part { position: relative; }
+.date-part input {
+  width: 100%; padding: 13px 12px;
+  border: 2px solid var(--grey-200); border-radius: var(--radius);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
+  color: var(--text); background: var(--grey-50);
+  outline: none; text-align: center;
+  transition: border-color .18s, background .18s, box-shadow .18s;
+  -webkit-appearance: none;
+}
+.date-part input::placeholder { color: var(--grey-400); font-weight: 400; font-size: 13px; }
+.date-part input:focus {
+  border-color: var(--blue); background: var(--white);
+  box-shadow: 0 0 0 4px rgba(21,101,192,0.10);
+}
+.date-part input.valid { border-color: var(--green); background: #f0faf5; }
+.date-part input.invalid { border-color: var(--red); background: #fff5f5; }
+.date-part-label {
+  font-size: 10px; text-align: center; color: var(--grey-400);
+  font-weight: 600; letter-spacing: .06em; margin-top: 5px;
+}
+
+/* Error message */
+.field-error {
+  display: none; font-size: 12px; color: var(--red);
+  font-weight: 600; margin-top: 6px; padding-left: 4px;
+}
+.field-error.show { display: block; }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px; background: var(--grey-100);
+  margin: 28px 0; position: relative;
+}
+
+/* ── SUBMIT BUTTON ── */
+.btn-submit {
+  width: 100%; padding: 16px 24px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  color: var(--white); border: none; border-radius: var(--radius);
+  font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px;
+  letter-spacing: .04em; cursor: pointer;
+  box-shadow: 0 4px 18px rgba(21,101,192,0.35);
+  transition: transform .15s, box-shadow .15s, opacity .15s;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.btn-submit::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, transparent 60%);
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(21,101,192,0.42); }
+.btn-submit:active { transform: scale(.98); }
+.btn-submit:disabled { opacity: .65; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-icon { font-size: 18px; }
+
+/* ── STATUS MESSAGES ── */
+.status-box {
+  display: none; padding: 16px 18px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 600; margin-top: 16px;
+  line-height: 1.6; text-align: center;
+}
+.status-box.show { display: block; }
+.status-box.loading {
+  background: var(--blue-lt); color: var(--blue);
+  border: 1.5px solid #c2d4f5;
+}
+.status-box.success {
+  background: #f0faf5; color: var(--green);
+  border: 1.5px solid #a7e3c5;
+}
+.status-box.error {
+  background: #fff5f5; color: var(--red);
+  border: 1.5px solid #f5c0ba;
+}
+
+/* ── NOTE ── */
+.form-note {
+  font-size: 12px; color: var(--grey-400); text-align: center;
+  margin-top: 14px; line-height: 1.6;
+}
+.form-note b { color: var(--grey-600); }
+
+/* ── SUCCESS SCREEN ── */
+.success-screen {
+  display: none; padding: 48px 36px; text-align: center;
+}
+.success-screen.show { display: block; }
+.success-icon { font-size: 72px; margin-bottom: 18px; animation: popIn .5s cubic-bezier(.34,1.56,.64,1); }
+@keyframes popIn { from{transform:scale(.5);opacity:0} to{transform:scale(1);opacity:1} }
+.success-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; color: var(--navy); margin-bottom: 10px;
+}
+.success-msg { font-size: 14px; color: var(--grey-600); line-height: 1.7; margin-bottom: 26px; }
+.success-info {
+  background: var(--grey-50); border: 1.5px solid var(--grey-200);
+  border-radius: var(--radius); padding: 18px 20px;
+  text-align: left; margin-bottom: 24px;
+}
+.info-row { display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 8px 0; border-bottom: 1px solid var(--grey-100); gap: 12px; }
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-label { font-size: 12px; font-weight: 700; color: var(--grey-400);
+  text-transform: uppercase; letter-spacing: .07em; flex-shrink: 0; }
+.info-value { font-size: 14px; font-weight: 600; color: var(--text); text-align: right; }
+.btn-new {
+  background: var(--grey-100); color: var(--navy);
+  border: 2px solid var(--grey-200); border-radius: var(--radius);
+  padding: 13px 24px; font-family: 'Inter', sans-serif;
+  font-weight: 700; font-size: 14px; cursor: pointer;
+  transition: all .15s; width: 100%;
+}
+.btn-new:hover { background: var(--blue-lt); border-color: var(--blue); color: var(--blue); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 560px) {
+  body { padding: 0 0 40px; align-items: flex-start; }
+  .form-card { border-radius: 0 0 20px 20px; }
+  .form-header { padding: 28px 22px 24px; }
+  .form-body { padding: 26px 22px; }
+  .success-screen { padding: 40px 22px; }
+  .form-title { font-size: 22px; }
+}
+</style>
+<style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style><style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style><style>@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style></head>
+<body>
+
+<div class="form-card">
+
+  <!-- ── HEADER ── -->
+  <div class="form-header">
+    <div class="header-badge">📋 Đăng ký thông tin</div>
+    <div class="form-title">Nhập thông tin<br>cá nhân</div>
+    <div class="form-subtitle">Vui lòng điền đầy đủ và chính xác tất cả các thông tin bên dưới.</div>
+  </div>
+
+  <!-- ── FORM ── -->
+  <div class="form-body" id="form-body">
+
+    <!-- Họ và tên -->
+    <div class="field">
+      <div class="field-label">
+        <span class="field-icon">👤</span>
+        Họ và tên <span class="required">*</span>
+      </div>
+      <input class="field-input" id="f-name" type="text" placeholder="Nguyễn Văn A" autocomplete="name" maxlength="80" oninput="validateName()" onblur="validateName(true)">
+      <div class="field-error" id="err-name">Vui lòng nhập họ và tên (ít nhất 2 ký tự).</div>
+    </div>
+
+    <!-- Ngày tháng năm sinh -->
+    <div class="field">
+      <div class="field-label">
+        <span class="field-icon">🎂</span>
+        Ngày, tháng, năm sinh <span class="required">*</span>
+      </div>
+      <div class="date-row">
+        <div class="date-part">
+          <input type="text" id="f-day" placeholder="DD" maxlength="2" inputmode="numeric" oninput="dateInput(this,&#39;f-month&#39;,2)" onblur="validateDate()">
+          <div class="date-part-label">NGÀY</div>
+        </div>
+        <div class="date-part">
+          <input type="text" id="f-month" placeholder="MM" maxlength="2" inputmode="numeric" oninput="dateInput(this,&#39;f-year&#39;,2)" onblur="validateDate()">
+          <div class="date-part-label">THÁNG</div>
+        </div>
+        <div class="date-part">
+          <input type="text" id="f-year" placeholder="YYYY" maxlength="4" inputmode="numeric" oninput="dateInput(this,null,4)" onblur="validateDate()">
+          <div class="date-part-label">NĂM</div>
+        </div>
+      </div>
+      <div class="field-error" id="err-date">Ngày tháng năm sinh không hợp lệ.</div>
+    </div>
+
+    <!-- CCCD -->
+    <div class="field">
+      <div class="field-label">
+        <span class="field-icon">🪪</span>
+        Số căn cước công dân <span class="required">*</span>
+      </div>
+      <input class="field-input" id="f-cccd" type="text" placeholder="012345678901 (12 chữ số)" maxlength="12" inputmode="numeric" oninput="validateCCCD()" onblur="validateCCCD(true)">
+      <div class="field-error" id="err-cccd">CCCD phải gồm đúng 12 chữ số.</div>
+    </div>
+
+    <!-- Địa chỉ -->
+    <div class="field">
+      <div class="field-label">
+        <span class="field-icon">📍</span>
+        Địa chỉ <span class="required">*</span>
+      </div>
+      <input class="field-input" id="f-address" type="text" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành..." maxlength="200" autocomplete="street-address" oninput="validateAddress()" onblur="validateAddress(true)">
+      <div class="field-error" id="err-address">Vui lòng nhập địa chỉ (ít nhất 10 ký tự).</div>
+    </div>
+
+    <!-- Số điện thoại -->
+    <div class="field">
+      <div class="field-label">
+        <span class="field-icon">📱</span>
+        Số điện thoại <span class="required">*</span>
+      </div>
+      <input class="field-input" id="f-phone" type="text" placeholder="0901234567" maxlength="11" inputmode="numeric" oninput="validatePhone()" onblur="validatePhone(true)">
+      <div class="field-error" id="err-phone">Số điện thoại không hợp lệ (10–11 số, bắt đầu bằng 0).</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="btn-submit" id="btn-submit" onclick="submitForm()">
+      <span class="btn-icon">📤</span>
+      Gửi thông tin
+    </button>
+    <button type="button" onclick="testConnection()" style="
+      width:100%; margin-top:10px; padding:11px;
+      background:transparent; border:2px solid #dde1ea;
+      border-radius:12px; font-family:Inter,sans-serif;
+      font-size:13px; font-weight:700; color:#5c6679;
+      cursor:pointer; transition:all .15s;
+    " onmouseover="this.style.borderColor=&#39;#1565c0&#39;;this.style.color=&#39;#1565c0&#39;" onmouseout="this.style.borderColor=&#39;#dde1ea&#39;;this.style.color=&#39;#5c6679&#39;">
+      🔌 Kiểm tra kết nối máy chủ
+    </button>
+
+    <div class="status-box" id="status-box"></div>
+
+    <div class="form-note">
+      Thông tin của bạn được bảo mật và chỉ dùng cho mục đích quản lý.<br>
+      Các trường có dấu <b style="color:var(--red)">*</b> là bắt buộc.
+    </div>
+  </div>
+
+  <!-- ── SUCCESS SCREEN ── -->
+  <div class="success-screen" id="success-screen">
+    <div class="success-icon">✅</div>
+    <div class="success-title">Gửi thành công!</div>
+    <div class="success-msg">Thông tin của bạn đã được ghi nhận.<br>Cảm ơn bạn đã điền đầy đủ thông tin.</div>
+    <div class="success-info" id="success-info"></div>
+    <button class="btn-new" onclick="resetForm()">🔄 Nhập thêm thông tin mới</button>
+  </div>
+
+</div><!-- /.form-card -->
+
+<script>
+// ══════════════════════════════════════════════════════
+//  CẤU HÌNH — dán URL Google Apps Script vào đây
+// ══════════════════════════════════════════════════════
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbztNC6NOKqgcEI6f9EAGqhzgSfiNS8GjF4ItYat3niChtbDqUp7qLjCZ8kB9vVTzDyM4Q/exec";
+
+// ══════════════════════════════════════════════════════
+//  VALIDATION
+// ══════════════════════════════════════════════════════
+function setField(inputEl, errorId, valid, touched) {
+  if (!touched && !inputEl.value.trim()) {
+    inputEl.classList.remove('valid','invalid');
+    document.getElementById(errorId).classList.remove('show');
+    return;
+  }
+  inputEl.classList.toggle('valid', valid);
+  inputEl.classList.toggle('invalid', !valid);
+  document.getElementById(errorId).classList.toggle('show', !valid);
+}
+
+function validateName(t=false) {
+  const el = document.getElementById('f-name');
+  setField(el, 'err-name', el.value.trim().length >= 2, t);
+}
+
+function validateDate(t=false) {
+  const d = document.getElementById('f-day').value.trim();
+  const m = document.getElementById('f-month').value.trim();
+  const y = document.getElementById('f-year').value.trim();
+  const any = d||m||y;
+  const errEl = document.getElementById('err-date');
+  if (!any && !t) {
+    ['f-day','f-month','f-year'].forEach(id => document.getElementById(id).classList.remove('valid','invalid'));
+    errEl.classList.remove('show'); return;
+  }
+  let ok = false;
+  if (d && m && y && y.length===4) {
+    const dd=parseInt(d), mm=parseInt(m), yy=parseInt(y);
+    const dt = new Date(yy, mm-1, dd);
+    ok = dt.getFullYear()===yy && dt.getMonth()===mm-1 && dt.getDate()===dd
+      && yy>=1900 && dt<=new Date();
+  }
+  ['f-day','f-month','f-year'].forEach(id => {
+    document.getElementById(id).classList.toggle('valid', ok);
+    document.getElementById(id).classList.toggle('invalid', !ok);
+  });
+  errEl.classList.toggle('show', !ok);
+}
+
+function dateInput(el, nextId, maxLen) {
+  el.value = el.value.replace(/\D/g,'');
+  if (el.value.length >= maxLen && nextId) document.getElementById(nextId).focus();
+  validateDate();
+}
+
+function validateCCCD(t=false) {
+  const el = document.getElementById('f-cccd');
+  el.value = el.value.replace(/\D/g,'');
+  setField(el, 'err-cccd', /^\d{9}$|^\d{12}$/.test(el.value.trim()), t);
+}
+
+function validateAddress(t=false) {
+  const el = document.getElementById('f-address');
+  setField(el, 'err-address', el.value.trim().length >= 5, t);
+}
+
+function validatePhone(t=false) {
+  const el = document.getElementById('f-phone');
+  el.value = el.value.replace(/\D/g,'');
+  setField(el, 'err-phone', /^0\d{9,10}$/.test(el.value.trim()), t);
+}
+
+function validateAll() {
+  validateName(true); validateDate(true); validateCCCD(true);
+  validateAddress(true); validatePhone(true);
+  // Kiểm tra: không có ô nào invalid, và đủ 4 input + 3 date đều valid
+  const hasInvalid  = document.querySelectorAll('.field-input.invalid, .date-part input.invalid').length > 0;
+  const validInputs = document.querySelectorAll('.field-input.valid').length;
+  const validDates  = document.querySelectorAll('.date-part input.valid').length;
+  return !hasInvalid && validInputs >= 4 && validDates === 3;
+}
+
+// ══════════════════════════════════════════════════════
+//  JSONP HELPER — dùng chung cho mọi request
+// ══════════════════════════════════════════════════════
+function jsonpRequest(url, onDone, timeoutMs) {
+  const old = document.getElementById('__jsonp__');
+  if (old) old.remove();
+
+  const cbName = 'jcb_' + Date.now() + '_' + Math.floor(Math.random()*9999);
+  let finished = false;
+
+  const timer = setTimeout(function() {
+    if (finished) return;
+    finished = true;
+    delete window[cbName];
+    const s = document.getElementById('__jsonp__');
+    if (s) s.remove();
+    onDone(null, 'TIMEOUT');
+  }, timeoutMs || 15000);
+
+  window[cbName] = function(resp) {
+    if (finished) return;
+    finished = true;
+    clearTimeout(timer);
+    delete window[cbName];
+    const s = document.getElementById('__jsonp__');
+    if (s) s.remove();
+    onDone(resp, null);
+  };
+
+  const s = document.createElement('script');
+  s.id  = '__jsonp__';
+  // Ghép callback vào URL
+  const sep = url.includes('?') ? '&' : '?';
+  s.src = url + sep + 'callback=' + cbName;
+  s.onerror = function() {
+    if (finished) return;
+    finished = true;
+    clearTimeout(timer);
+    delete window[cbName];
+    onDone(null, 'SCRIPT_ERROR');
+  };
+  document.body.appendChild(s);
+}
+
+// ══════════════════════════════════════════════════════
+//  TEST KẾT NỐI
+// ══════════════════════════════════════════════════════
+function testConnection() {
+  showStatus('loading', '🔄 Đang kiểm tra kết nối tới máy chủ...');
+  jsonpRequest(SCRIPT_URL + '?action=ping', function(resp, err) {
+    if (err === 'SCRIPT_ERROR') {
+      showStatus('error',
+        '❌ <b>Lỗi 403 / Không truy cập được.</b><br>' +
+        'Apps Script chưa deploy đúng. Làm theo các bước:<br>' +
+        '① Mở Apps Script → Deploy → <b>New deployment</b><br>' +
+        '② Execute as: <b>Me</b> · Who has access: <b>Anyone</b><br>' +
+        '③ Copy URL mới → dán vào <code>SCRIPT_URL</code> trong HTML');
+    } else if (err === 'TIMEOUT') {
+      showStatus('error', '⏳ Hết thời gian chờ. Kiểm tra mạng hoặc thử lại.');
+    } else if (resp && resp.status === 'success') {
+      showStatus('success', '✅ Kết nối thành công! Bạn có thể gửi thông tin.');
+    } else {
+      showStatus('error', '⚠️ Máy chủ phản hồi bất thường: ' + JSON.stringify(resp));
+    }
+  }, 10000);
+}
+
+// ══════════════════════════════════════════════════════
+//  SUBMIT
+// ══════════════════════════════════════════════════════
+function submitForm() {
+  if (!validateAll()) {
+    showStatus('error', '⚠️ Vui lòng kiểm tra lại các ô được đánh dấu đỏ.');
+    return;
+  }
+
+  const d   = document.getElementById('f-day').value.padStart(2,'0');
+  const m   = document.getElementById('f-month').value.padStart(2,'0');
+  const y   = document.getElementById('f-year').value;
+  const dob = d + '/' + m + '/' + y;
+
+  const payload = {
+    name:    document.getElementById('f-name').value.trim(),
+    dob:     dob,
+    cccd:    document.getElementById('f-cccd').value.trim(),
+    address: document.getElementById('f-address').value.trim(),
+    phone:   document.getElementById('f-phone').value.trim()
+  };
+
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<span style="display:inline-block;animation:spin 1s linear infinite">⏳</span> Đang gửi...';
+  showStatus('loading', '⏳ Đang gửi thông tin, vui lòng chờ...');
+
+  const params = Object.keys(payload)
+    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(payload[k]))
+    .join('&');
+
+  const url = SCRIPT_URL + '?action=submit&' + params;
+
+  jsonpRequest(url, function(resp, err) {
+    if (err === 'SCRIPT_ERROR') {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-icon">📤</span> Gửi thông tin';
+      showStatus('error',
+        '❌ <b>Không kết nối được tới máy chủ (lỗi 403).</b><br>' +
+        'Apps Script chưa deploy đúng. Bấm nút <b>"Kiểm tra kết nối"</b> để xem hướng dẫn.');
+    } else if (err === 'TIMEOUT') {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-icon">📤</span> Gửi thông tin';
+      showStatus('error', '⏳ Hết thời gian chờ. Kiểm tra mạng rồi thử lại.');
+    } else if (resp && resp.status === 'success') {
+      showSuccessScreen(payload);
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-icon">📤</span> Gửi thông tin';
+      showStatus('error', '❌ Lỗi: ' + (resp ? resp.message : 'Không rõ. Thử lại sau.'));
+    }
+  }, 15000);
+}
+
+function showStatus(type, msg) {
+  const el = document.getElementById('status-box');
+  el.className = 'status-box ' + type + ' show';
+  el.innerHTML = msg;
+}
+
+function showSuccessScreen(payload) {
+  document.getElementById('form-body').style.display = 'none';
+  document.getElementById('success-screen').classList.add('show');
+  const labels = {
+    name:'👤 Họ và tên', dob:'🎂 Ngày sinh',
+    cccd:'🪪 CCCD', address:'📍 Địa chỉ', phone:'📱 Điện thoại'
+  };
+  document.getElementById('success-info').innerHTML =
+    Object.keys(payload).map(k =>
+      '<div class="info-row"><div class="info-label">' + labels[k] + '</div>' +
+      '<div class="info-value">' + payload[k] + '</div></div>'
+    ).join('');
+}
+
+function resetForm() {
+  document.getElementById('form-body').style.display = 'block';
+  document.getElementById('success-screen').classList.remove('show');
+  ['f-name','f-cccd','f-address','f-phone'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.value=''; el.classList.remove('valid','invalid'); }
+  });
+  ['f-day','f-month','f-year'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.value=''; el.classList.remove('valid','invalid'); }
+  });
+  document.querySelectorAll('.field-error').forEach(e => e.classList.remove('show'));
+  document.getElementById('status-box').className = 'status-box';
+  const btn = document.getElementById('btn-submit');
+  btn.disabled = false;
+  btn.innerHTML = '<span class="btn-icon">📤</span> Gửi thông tin';
+}
+
+const _s = document.createElement('style');
+_s.textContent = '@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}';
+document.head.appendChild(_s);
+</script>
+
+
+</body></html>
